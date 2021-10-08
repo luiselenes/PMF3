@@ -1,0 +1,37 @@
+<%= form_with(model: green_house) do |form| %>
+  <% if green_house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(green_house.errors.count, "error") %> prohibited this green_house from being saved:</h2>
+
+      <ul>
+        <% green_house.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code_greenhouse %>
+    <%= form.text_field :code_greenhouse %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area_grooves %>
+    <%= form.text_field :area_grooves %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :agricultural_companies_id %>
+    <%= form.text_field :agricultural_companies_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

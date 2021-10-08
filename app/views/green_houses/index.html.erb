@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Green Houses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code greenhouse</th>
+      <th>Area grooves</th>
+      <th>Status</th>
+      <th>Agricultural companies</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @green_houses.each do |green_house| %>
+      <tr>
+        <td><%= green_house.code_greenhouse %></td>
+        <td><%= green_house.area_grooves %></td>
+        <td><%= green_house.status %></td>
+        <td><%= green_house.agricultural_companies_id %></td>
+        <td><%= link_to 'Show', green_house %></td>
+        <td><%= link_to 'Edit', edit_green_house_path(green_house) %></td>
+        <td><%= link_to 'Destroy', green_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Green House', new_green_house_path %>

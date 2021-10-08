@@ -1,0 +1,2 @@
+class AgriculturalCompany < ApplicationRecord
+end

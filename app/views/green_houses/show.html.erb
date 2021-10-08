@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code greenhouse:</strong>
+  <%= @green_house.code_greenhouse %>
+</p>
+
+<p>
+  <strong>Area grooves:</strong>
+  <%= @green_house.area_grooves %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @green_house.status %>
+</p>
+
+<p>
+  <strong>Agricultural companies:</strong>
+  <%= @green_house.agricultural_companies_id %>
+</p>
+
+<%= link_to 'Edit', edit_green_house_path(@green_house) %> |
+<%= link_to 'Back', green_houses_path %>

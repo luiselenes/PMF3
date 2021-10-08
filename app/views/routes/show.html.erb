@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @route.height %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @route.latitude %>
+</p>
+
+<p>
+  <strong>Longitud:</strong>
+  <%= @route.longitud %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @route.status %>
+</p>
+
+<p>
+  <strong>Devices:</strong>
+  <%= @route.devices_id %>
+</p>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>
