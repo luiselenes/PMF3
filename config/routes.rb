@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'app/index'
+  devise_for :users
+  root :to => "app#index"
   resources :imagens
   resources :routes
   resources :green_houses
