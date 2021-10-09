@@ -1,5 +1,6 @@
 class AgriculturalCompaniesController < ApplicationController
-  before_action :authenticate_user!,:set_agricultural_company, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :set_agricultural_company, only: %i[ show edit update destroy ]
 
   # GET /agricultural_companies or /agricultural_companies.json
   def index

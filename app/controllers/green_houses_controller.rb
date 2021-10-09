@@ -1,4 +1,5 @@
 class GreenHousesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_green_house, only: %i[ show edit update destroy ]
 
   # GET /green_houses or /green_houses.json
