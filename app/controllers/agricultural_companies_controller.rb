@@ -9,6 +9,7 @@ class AgriculturalCompaniesController < ApplicationController
 
   # GET /agricultural_companies/1 or /agricultural_companies/1.json
   def show
+    
   end
 
   # GET /agricultural_companies/new

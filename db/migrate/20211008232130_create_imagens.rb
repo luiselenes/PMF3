@@ -7,4 +7,3 @@ class CreateImagens < ActiveRecord::Migration[6.1]
     end
   end
 end
-insert into imagens values (1,'alguna');

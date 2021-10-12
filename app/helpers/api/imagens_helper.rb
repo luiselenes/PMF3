@@ -1,0 +1,2 @@
+module Api::ImagensHelper
+end
