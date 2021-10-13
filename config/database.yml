@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: PMF3_production
-  username: PMF3
+  username: Carlos
   password: <%= ENV['PMF3_DATABASE_PASSWORD'] %>
