@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
   
   devise_for :users
-  root :to => "app#index"
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
   resources :imagens
   resources :routes
   resources :green_houses
