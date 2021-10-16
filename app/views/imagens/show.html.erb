@@ -3,7 +3,9 @@
 <p>
   <strong>Des:</strong>
   <%= @imagen.des %>
-</p>
-
+  <p>
+  <strong>imagen:</strong>
+  <%= image_tag @imagen.img, style: "width: 200px; display: block"  %>
+  <p>
 <%= link_to 'Edit', edit_imagen_path(@imagen) %> |
 <%= link_to 'Back', imagens_path %>
