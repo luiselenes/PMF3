@@ -19,19 +19,36 @@
     list-style-type: none;
     padding: 0;
   }
+  #pvlogo{
+    width: 5%; 
+}
+
   .imgrecorrido{
       width: auto;
       height: auto;
       border-width: 1px;
+      overflow:scroll;
       /*  border-style: solid;
       border-color: black;*/
   }
-  .imgrecorrido img {
+  #recorridoimg {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
+    overflow: hidden;
+    -webkit-animation: reveal 2s ease;
+    -webkit-animation-fill-mode: backwards;
   }
+
+  @-webkit-keyframes reveal {
+    0%   {width: 0px;}
+    5% { width: 5%;}
+}
+@keyframes reveal {
+    0%   {width: 0px;}
+    5% { width: 5%;}
+}
   footer{
     position: fixed;
     bottom: 0;
@@ -85,7 +102,13 @@
   #lgreenhousechange{
     float: left;
   }
-  
+  #ldate{
+    margin-right: 30px;
+
+  }
+  #ldatechange{
+    margin-right: 90px;
+  }
   #lcubot{
     float: right;
   }
