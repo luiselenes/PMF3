@@ -1,93 +1,94 @@
-body {
-    flex-direction: column;
-    background: #ffffff;
-}
-h1.headertitle{
-  text-align: center;
-  font-size: 20px;
-  font-family: "Raleway", Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  padding-top: 30px;
-}
-header{ 
-  text-align: center;
-}
-h1.headercompany{ 
-  text-align: center;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-.imgrecorrido{
-    width: auto;
-    height: auto;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-}
-.imgrecorrido img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-}
-footer{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-}
-button{
-  background: rgb(255, 255, 255); 
-  font-size: 25px;
-  color:rgb(0, 0, 0 );
-  transition: all 0.2s;
-  display: inline-block;
-  vertical-align: auto;
-  text-align: center;
-  margin: auto;
-  padding: auto;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: black;
-}
-#btnback:hover,#btnhome:hover,#btnnext:hover{
-    background-color: rgb(225, 214, 65);
-}
-#btnback{
-  float:left;
-  margin-left: 15px;
-  position: relative;
-}
-#btnhome{
-  margin-left: 37%;
-  position: relative;
-}
-#btnnext{
-float: right;
-margin-right: 25px;
-position: relative;
-}
-#lgreenhouse{
-  float: left;
-  margin-left: 30px;
-}
-#lgreenhousechange{
-  float: left;
-  margin-left: 5px;
-}
-#ldate{
-  margin-right: 5px;
-}
-#ldatechange{
-  margin-right: 80px;
-}
-#lcubot{
+  body {
+      flex-direction: column;
+      background: #ffffff;
+  }
+  h1.headertitle{
+    text-align: center;
+    font-size: 20px;
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    padding-top: 30px;
+  }
+  header{ 
+    text-align: center;
+  }
+  h1.headercompany{ 
+    text-align: center;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .imgrecorrido{
+      width: auto;
+      height: auto;
+      border-width: 1px;
+      /*  border-style: solid;
+      border-color: black;*/
+  }
+  .imgrecorrido img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+  footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+  }
+  .labesinrow{
+    display: inline-block;
+    width: 100%;  
+    text-align: center;
+  } 
+  .containerbtn{
+    width: 100%;  
+    float: left;
+    text-align: center;
+  }
+  .containerbtn button{
+    display: inline-block;
+  }
+
+  button{
+    background: rgb(255, 255, 255); 
+    font-size: 25px;
+    color:rgb(0, 0, 0 );
+    transition: all 0.2s;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    border-radius: 10px;
+  }
+
+  #btnback:hover,#btnhome:hover,#btnnext:hover{
+      background-color: rgb(225, 214, 65);
+  }
+
+  #btnback{
+    float:left;
+    margin-left: 15px;
+    //position: relative;
+  }
+
+  #btnnext{
   float: right;
-  margin-right: 5px;
-}
-#lcubotchange{
-  float: inline-end;    
-  margin-right: 30px;
-}
+  margin-right: 20px; 
+  }
+
+  #lgreenhouse{
+    float: left;
+    margin-left: 30px;
+  }
+  #lgreenhousechange{
+    float: left;
+  }
+  
+  #lcubot{
+    float: right;
+  }
+  #lcubotchange{
+    float: inline-end;    
+  }
