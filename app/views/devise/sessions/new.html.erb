@@ -7,10 +7,10 @@
   <div id="formContent">
   <p>
     <div wrapper fadeInDown="field" class="fadeIn second">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Login" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Correo" %>
     </div>
     <div class="fadeIn second"> 
-      <%= f.password_field :password, autocomplete: "current-password",  placeholder:"Password"%>
+      <%= f.password_field :password, autocomplete: "current-password",  placeholder:"Contraseña"%>
     </div>
     <% if devise_mapping.rememberable? %>
       <div class="fadeIn third">
@@ -21,5 +21,5 @@
     </div>
     </div>
     </div>
-  <% end %>
+  <% end %> 
 
