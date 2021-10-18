@@ -1,30 +1,31 @@
-<h2>Log in</h2>
+<div class='wrapper fadeInDown'>
+  <div id='formContent'>
+    <div class='fadeIn first'>
+      <img src='<%= image_path "paloverdelogo.png"%>'
+        alt='Hola'/>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-   
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <p>
-    <div wrapper fadeInDown="field" class="fadeIn second">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"login" %>
-    </div>
-    <p>
-    <div class="fadeIn second"> 
-      <%= f.password_field :password, autocomplete: "current-password",  placeholder:"password"%>
-    </div>
-    <p>
-    <% if devise_mapping.rememberable? %>
-      <div class="fadeIn third">
-      
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
+    <%= form_for(resource,
+      as: resource_name,
+      url: session_path(resource_name)) do |f| %>
+      <%= f.email_field :email,
+        autofocus: true,
+        autocomplete: "email",
+        placeholder:"Correo",
+        id:"login",
+        class: "fadeIn second input-form"
+      %>
+
+      <%= f.password_field :password,
+        autocomplete: "current-password",
+        placeholder:"Contraseña",
+        class: "fadeIn third input-form"
+      %>
+      <%= f.submit "Iniciar sesion",
+        class: 'fadeIn fourth'
+      %>
     <% end %>
-    <p>
-    <div class="fadeIn fourth" >
-      <%= f.submit "Log in" %>
-    </div>
-    </div>
-    </div>
-  <% end %>
+
+  </div>
+</div>
 
