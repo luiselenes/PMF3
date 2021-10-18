@@ -47,6 +47,6 @@ class Api::ImagensController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def imagen_params
-      params.require(:imagen).permit(:des)
+      params.require(:imagen).permit(:des,:img)
     end
 end

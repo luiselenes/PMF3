@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: "routes#index"
   end
+  resources :app
   resources :imagens
   resources :routes
   resources :green_houses

@@ -1,5 +1,4 @@
 class Api::RoutesController < ApplicationController
-    class RoutesController < ApplicationController
         before_action :set_route, only: [:show, :update, :destroy]
       
         # GET /routes
@@ -47,7 +46,7 @@ class Api::RoutesController < ApplicationController
       
           # Only allow a list of trusted parameters through.
           def route_params
-            params.require(:route).permit(:height, :latitude, :longitud, :devices_id)
+            params.require(:route).permit(:height, :latitude, :longitud, :devices_id,:image)
           end
       end
       
