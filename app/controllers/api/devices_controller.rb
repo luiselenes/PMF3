@@ -46,6 +46,6 @@ class Api::DevicesController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def agricultural_company_params
-        params.require(:agricultural_company).permit(:name, :address, :phone, :responsable)
+        params.require(:agricultural_company).permit(:name, :address, :phone, :responsable,:image)
       end
 end
