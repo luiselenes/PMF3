@@ -1,30 +1,29 @@
-
   <div id="recorrido">
-    <body>
       <header> 
-            <%= image_tag("paloverdelogo.png", {:style => "width:5%;"}) %> 
+            <%= image_tag 'paloverdelogo.png', id: 'pvlogo' %> 
             <h1 class="headertitle">Recorrido</h1>
             <h1 class="headercompany">Compañia</h1>
-             <div class="labelsinrow">
-                <span><label id="lgreenhouse">Invernadero: </label></span>
-                <span><label id="lgreenhousechange">lgreenhousechange</label></span>
-                <span><label id="ldate">Fecha y hora: </label></span>
-                <span><label id="ldatechange">ldatechange</label></span>
-                <span><label id="lcubotchange">lcubotchange</label></span> 
-                <span><label id="lcubot">Cubot: </label></span>
-             </div>
+            <div class="labelsinrow">
+                <label id="lgreenhouse">Invernadero: </label>
+                <label id="lgreenhousechange">lgreenhousechange</label>
+                <label id="ldate">Fecha y hora: </label>
+                <label id="ldatechange">ldatechange</label>
+                <label id="lcubotchange">lcubotchange</label>
+                <label id="lcubot">Cubot: </label>
+              </div>
       </header>
      <body>      
         <div class="imgrecorrido">
          <article>
-         <%= image_tag("recorrido.png", {:style => "width:100%;"}) %>
+         <%= image_tag 'recorrido1.png', id: 'recorridoimg' %>
          </article>
          </div>
       </body>   
       <footer>
+      <div class="containerbtn">
          <button id="btnback">Anterior</button>
          <button id="btnhome">Principal</button>
          <button id="btnnext">Siguiente</button>
+      </div>   
       </footer>
-    </body>
   </div>
