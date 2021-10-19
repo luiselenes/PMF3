@@ -4,3 +4,4 @@
 // that code so it'll be compiled.
 // = requiere jquery 
 // = requiere bootstrap-sprockets
+// = requiere ab-admin-2.min
