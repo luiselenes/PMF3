@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   end
   
   devise_for :users
-  devise_scope :user do
-    root to: "routes#index"
-  end
+  root to: "routes#index"
   resources :app
   resources :imagens
   resources :routes
