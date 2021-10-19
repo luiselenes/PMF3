@@ -1,3 +1,3 @@
 class Device < ApplicationRecord
-  belongs_to :agricultural_companies
+  belongs_to :agricultural_company
 end

@@ -4,7 +4,7 @@ class CreateDevices < ActiveRecord::Migration[6.1]
       t.string :name
       t.float :capacity
       t.boolean :status
-      t.references :agricultural_companies, null: false, foreign_key: true
+      t.references :agricultural_company, null: false, foreign_key: true
 
       t.timestamps
     end
