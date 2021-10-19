@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 2021_10_09_181544) do
     t.string "name"
     t.float "capacity"
     t.boolean "status"
-    t.bigint "agricultural_companies_id", null: false
+    t.bigint "agricultural_company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["agricultural_companies_id"], name: "index_devices_on_agricultural_companies_id"
+    t.index ["agricultural_company_id"], name: "index_devices_on_agricultural_company_id"
   end
 
   create_table "green_houses", force: :cascade do |t|
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_181544) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "devices", "agricultural_companies", column: "agricultural_companies_id"
+  add_foreign_key "devices", "agricultural_companies"
   add_foreign_key "green_houses", "agricultural_companies", column: "agricultural_companies_id"
   add_foreign_key "routes", "devices", column: "devices_id"
 end
