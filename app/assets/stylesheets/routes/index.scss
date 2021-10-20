@@ -36,9 +36,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    overflow: hidden;
     -webkit-animation: reveal 2s ease;
     -webkit-animation-fill-mode: backwards;
+    border-style: solid;
+    border-color: red;
   }
 
   @-webkit-keyframes reveal {
