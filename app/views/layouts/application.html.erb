@@ -13,9 +13,10 @@
   <body>
     <div>
       <% if signed_in? %>
+        <%= render 'layouts/s'%>
         <%= render 'layouts/navbar' %>
-        <%= render 'layouts/menu' %>
-            <%= button_to  "Salir", destroy_user_session_path, method: :delete %>
+       <%= render 'layouts/menu' %> 
+             <%= link_to  "Cerrar Sesion", destroy_user_session_path, method: :delete %>
         <% else %>
          <%= yield %>
       <% end %>
