@@ -1,63 +1,29 @@
 <header class="headerdispositivo"> 
    <h1 class="headertitleGH">Bienvenido al sistema de monitoreo de fumigaci&oacute;n</h1>
    <%= image_tag 'paloverdelogo.png', class: 'iconpv' %> 
-</header>     
+</header>  
 <body>   
-    <div class="row">
-     <div class="col-sm">
+  <div class="containersearch">
+   <label for="site-search">Buscar Dispositivo:</label>
+   <input type="search" id="site-search" name="q" aria-label="Search through site content">
+   <button id="btnsearch">Buscar</button> 
+  </div>  
+    <div class="col-sm"> 
      <table>
-         <tr>
+         <tr> 
           <th><%= link_to "Dispositivo", :sort => "name"%> </th>
           <th><%= link_to "Capacidad", :sort => "capacity"%> </th>
           <th><%= link_to "Compania", :sort => "agricultural_company_id"%> </th>
          </tr>
+        <% @devices.each do |device| %> 
         <table>
-        <% @devices.each do |device| %>
          <tr>
-          <td><%= device.name%></td>
+          <td><a href="/routes"><%= device.name%></a></td>
           <td><%= device.capacity%></td><td>
           <td><%= device.agricultural_company_id%></td>
          </tr>
         <% end %>
         </table>
        </table>
-      </div>
-      </div>
-      <div class="col-sm">  
-       <table>
-         <tr>
-          <th><%= link_to "Dispositivo", :sort => "name"%> </th>
-          <th><%= link_to "Capacidad", :sort => "capacity"%> </th>
-          <th><%= link_to "Compania", :sort => "agricultural_company_id"%> </th>
-         </tr>
-        <table>
-        <% @devices.each do |device| %>
-         <tr>
-          <td><%= device.name%></td>
-          <td><%= device.capacity%></td><td>
-          <td><%= device.agricultural_company_id%></td>
-         </tr>
-        <% end %>
-        </table>
-       </table>
-      </div>
-      <div class="col-sm"> 
-       <table>
-         <tr>
-          <th><%= link_to "Dispositivo", :sort => "name"%> </th>
-          <th><%= link_to "Capacidad", :sort => "capacity"%> </th>
-          <th><%= link_to "Compania", :sort => "agricultural_company_id"%> </th>
-         </tr>
-        <table>
-        <% @devices.each do |device| %>
-         <tr>
-          <td><%= device.name%></td>
-          <td><%= device.capacity%></td><td>
-          <td><%= device.agricultural_company_id%></td>
-         </tr>
-        <% end %>
-        </table>
-       </table>
-      </div>
-    </div>   
+    </div>
 </body>
