@@ -2,11 +2,9 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap-sprockets
-//= require simple-datatables
-//= require font-awesome 
+import $ from 'jquery';
+import bootstrap from 'bootstrap';
+import fontawesome from 'font-awesome'
 
 console.log('hola')
 $(document).on("turbolinks:load", function(){
@@ -24,3 +22,4 @@ $(document).on("turbolinks:load", function(){
         });
     }
 })
+console.log('h0lawa')
