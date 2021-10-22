@@ -68,3 +68,12 @@ class DevicesController < ApplicationController
       params.require(:device).permit(:name, :capacity, :status, :agricultural_company_id)
     end
 end
+
+def search
+  if params[:search].blank?
+    redirect_to device_path and return 
+  else
+    @parameter = params[:search].downcase
+    @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+ end
+end
