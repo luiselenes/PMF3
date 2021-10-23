@@ -29,10 +29,9 @@
   }
 
   .imgrecorrido{
-      width: auto;
+      width: 100%;
       height: auto;
       border-width: 1px;
-      overflow:scroll;
       /*  border-style: solid;
       border-color: black;*/
   }
@@ -119,4 +118,19 @@
   }
   #lcubotchange{
     float: inline-end;    
+  }
+
+  .catologcontainer{
+    width: 100%;
+    border-style: solid;
+    border-color: blue;
+    float: left;
+  }
+
+  .col-sm{
+    width: 24%;
+    margin-left: 5px;
+    margin-right: 1px;
+    margin-top: 5px;
+    
   }
