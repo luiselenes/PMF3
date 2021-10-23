@@ -1,5 +1,19 @@
 <h3> Resultados </h3>
 
- <% @results.each do |result| %>
-    <%= result.name %><br>
+  <table>
+         <tr> 
+          <th><%= link_to "Dispositivo", :sort => "name"%> </th>
+          <th><%= link_to "Capacidad", :sort => "capacity"%> </th>
+          <th><%= link_to "Compania", :sort => "agricultural_company_id"%> </th>
+         </tr>
+        <% @results.each do |result| %>
+        <table>
+         <tr>
+          <td><a href="/routes"><%= result.name %></a><br></td>
+          <td><%= result.capacity%></td><td>
+          <td><%= result.agricultural_company_id%></td>
+         </tr>
+
+
   <% end %>
+  </table>
