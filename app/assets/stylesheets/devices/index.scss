@@ -2,8 +2,8 @@
     font-family: Arial,Helvetica,sans-serif;
     font-size: 14px;
     text-align: center;
-    border-style: solid;
-    border-color: red;
+    //border-style: solid;
+    //border-color: red;
   }
 
 .iconpv{
@@ -14,7 +14,7 @@
   .containersearch{
     float: left;
     width: 100%;
-    border-style: solid;
+    //@include: solid;
 
   }
 
@@ -22,7 +22,18 @@
     width: 100%;
     float: left;
     border-style: solid;
+    width: 24%;
+    margin-left: 5px;
+    margin-right: 1px;
+    margin-top: 5px;
   }
+  .catologcontainer{
+    width: 100%;
+    //border-style: solid;
+    //border-color: blue;
+    float: left;
+  }
+
 
   .btn-search{
     font-family:Arial, Helvetica, sans-serif;
@@ -30,3 +41,5 @@
     border-radius: 10px;
     border-color: black;
   }
+
+ 
