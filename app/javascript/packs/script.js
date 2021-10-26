@@ -1,15 +1,10 @@
- // This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap-sprockets
-//= require simple-datatables
-//= require font-awesome 
+// 
+// Scripts
+//
 
-console.log('hola')
-$(document).on("turbolinks:load", function(){
+window.addEventListener('DOMContentLoaded', event => {
+
+    // Toggle the side navigation
     const sidebarToggle = document.body.querySelector('#sidebarToggle');
     if (sidebarToggle) {
         // Uncomment Below to persist sidebar toggle between refreshes
@@ -20,7 +15,7 @@ $(document).on("turbolinks:load", function(){
             event.preventDefault();
             document.body.classList.toggle('sb-sidenav-toggled');
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-            console.log('Hola mundo')
         });
     }
-})
+
+});

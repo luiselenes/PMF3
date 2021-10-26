@@ -31,7 +31,6 @@
   .imgrecorrido{
       width: 100%;
       height: auto;
-      border-width: 1px;
       /*  border-style: solid;
       border-color: black;*/
   }
@@ -41,9 +40,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    overflow: hidden;
     -webkit-animation: reveal 2s ease;
     -webkit-animation-fill-mode: backwards;
+    border-style: solid;
+    border-color: red;
   }
 
   @-webkit-keyframes reveal {
@@ -53,13 +53,7 @@
   @keyframes reveal {
     0%   {width: 0px;}
     5% { width: 5%;}
-  }
-  footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-  }
+
 
   .labesinrow{
     display: inline-block;
@@ -68,19 +62,13 @@
   }
 
   .containerbtn{
-    width: 100%;  
-    float: left;
-    text-align: center;
+
   }
 
   button{
     background: rgb(255, 255, 255); 
     font-size: 25px;
-    color:rgb(0, 0, 0 );
-    transition: all 0.2s;
-    text-align: center;
-    margin: auto;
-    padding: auto;
+    color:rgb(0, 0, 0 );  
     border-radius: 10px;
   }
 
@@ -89,15 +77,27 @@
   }
 
   #btnback{
-    float:left;
-    margin-left: 15px;
-    //position: relative;
-  }
-
-  #btnnext{
-  float: right;
-  margin-right: 20px; 
-  }
+    position: absolute;
+    bottom: 0px;
+    left: 16px;
+    font-size: 18px;
+    }
+   #btnhome{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+   }
+  
+  
+    #btnnext{
+    position: absolute;
+    bottom: 0px;
+    right: 16px;
+    font-size: 18px;
+  
+    }
 
   #lgreenhouse{
     float: left;
