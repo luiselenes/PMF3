@@ -3,7 +3,7 @@ class CreateDevices < ActiveRecord::Migration[6.1]
     create_table :devices do |t|
       t.string :name
       t.float :capacity
-      t.boolean :status
+      t.boolean :logicaldelete
       t.references :agricultural_company, null: false, foreign_key: true
 
       t.timestamps

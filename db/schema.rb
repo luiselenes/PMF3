@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_200437) do
   create_table "devices", force: :cascade do |t|
     t.string "name"
     t.float "capacity"
-    t.boolean "status"
+    t.boolean "logicaldelete"
     t.bigint "agricultural_company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_200437) do
     t.string "code_greenhouse"
     t.float "lat"
     t.float "lng"
-    t.boolean "status"
+    t.boolean "logicaldelete"
     t.bigint "agricultural_company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 2021_10_26_200437) do
   end
 
   create_table "routes", force: :cascade do |t|
-    t.boolean "status"
     t.bigint "device_id", null: false
     t.date "routedate"
     t.datetime "created_at", precision: 6, null: false
