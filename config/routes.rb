@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :paths
   namespace :api, defaults: {format: 'json'} do
     resources :agricultural_companies
     resources :imagens, only: [:index, :create, :destroy, :update, :show]
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "routes#index"
   resources :app
-  resources :imagens
   resources :routes
   resources :green_houses
   resources :devices

@@ -49,5 +49,3 @@ class Api::RoutesController < ApplicationController
             params.require(:route).permit(:height, :latitude, :longitud, :devices_id,:image)
           end
       end
-      
-end
