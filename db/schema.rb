@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_181544) do
+ActiveRecord::Schema.define(version: 2021_10_26_200437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,30 +63,43 @@ ActiveRecord::Schema.define(version: 2021_10_09_181544) do
   end
 
   create_table "green_houses", force: :cascade do |t|
+    t.string "name"
     t.string "code_greenhouse"
-    t.float "area_grooves"
+    t.float "lat"
+    t.float "lng"
     t.boolean "status"
-    t.bigint "agricultural_companies_id", null: false
+    t.bigint "agricultural_company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["agricultural_companies_id"], name: "index_green_houses_on_agricultural_companies_id"
+    t.index ["agricultural_company_id"], name: "index_green_houses_on_agricultural_company_id"
   end
 
-  create_table "imagens", force: :cascade do |t|
-    t.string "des"
+  create_table "paths", id: false, force: :cascade do |t|
+    t.float "lat"
+    t.float "lng"
+    t.boolean "sensor"
+    t.bigint "route_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["route_id"], name: "index_paths_on_route_id"
   end
 
   create_table "routes", force: :cascade do |t|
-    t.float "height"
-    t.float "latitude"
-    t.float "longitud"
     t.boolean "status"
-    t.bigint "devices_id", null: false
+    t.bigint "device_id", null: false
+    t.date "routedate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["devices_id"], name: "index_routes_on_devices_id"
+    t.index ["device_id"], name: "index_routes_on_device_id"
+  end
+
+  create_table "user_companies", force: :cascade do |t|
+    t.bigint "agricultural_company_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agricultural_company_id"], name: "index_user_companies_on_agricultural_company_id"
+    t.index ["user_id"], name: "index_user_companies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,6 +117,9 @@ ActiveRecord::Schema.define(version: 2021_10_09_181544) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "devices", "agricultural_companies"
-  add_foreign_key "green_houses", "agricultural_companies", column: "agricultural_companies_id"
-  add_foreign_key "routes", "devices", column: "devices_id"
+  add_foreign_key "green_houses", "agricultural_companies"
+  add_foreign_key "paths", "routes"
+  add_foreign_key "routes", "devices"
+  add_foreign_key "user_companies", "agricultural_companies"
+  add_foreign_key "user_companies", "users"
 end
