@@ -45,8 +45,7 @@
     width: 100%;
     -webkit-animation: reveal 2s ease;
     -webkit-animation-fill-mode: backwards;
-    border-style: solid;
-    border-color: red;
+  //border-style: solid;
   }
 
   @-webkit-keyframes reveal {
@@ -66,6 +65,7 @@
 
   .containerbtn{
 
+
   }
 
   button{
@@ -80,26 +80,32 @@
   }
 
   #btnback{
-    position: absolute;
-    bottom: 0px;
-    left: 16px;
-    font-size: 18px;
+  	font-size: 10px; /* Cambiar el tamaño de la tipografia */
+    text-transform: uppercase; /* Texto en mayusculas */
+    font-weight: bold; /* Fuente en negrita o bold */
+    color: #000000; /* Color del texto */
+    border-radius: 5px; /* Borde del boton */
+    letter-spacing: 2px; /* Espacio entre letras */
+    padding: 10px 15px; /* Relleno del boton */
+    position: fixed;
+    margin-left: 40px;
+    bottom: 20px;
     }
-   #btnhome{
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
-   }
-  
+ 
   
     #btnnext{
-    position: absolute;
-    bottom: 0px;
-    right: 16px;
-    font-size: 18px;
-  
+      font-size: 10px; /* Cambiar el tamaño de la tipografia */
+      text-transform: uppercase; /* Texto en mayusculas */
+      font-weight: bold; /* Fuente en negrita o bold */
+      color: #000000; /* Color del texto */
+      border-radius: 5px; /* Borde del boton */
+      letter-spacing: 2px; /* Espacio entre letras */
+      padding: 10px 15px; /* Relleno del boton */
+      position: fixed;
+      margin-right: auto;
+      bottom: 20px;
+      right: 40px;
+
     }
 
   #lgreenhouse{
@@ -123,17 +129,3 @@
     float: inline-end;    
   }
 
-  .catologcontainer{
-    width: 100%;
-    border-style: solid;
-    border-color: blue;
-    float: left;
-  }
-
-  .col-sm{
-    width: 24%;
-    margin-left: 5px;
-    margin-right: 1px;
-    margin-top: 5px;
-    
-  }
