@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @path.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @path.lng %>
+</p>
+
+<p>
+  <strong>Sensor:</strong>
+  <%= @path.sensor %>
+</p>
+
+<p>
+  <strong>Routes:</strong>
+  <%= @path.routes_id %>
+</p>
+
+<%= link_to 'Edit', edit_path_path(@path) %> |
+<%= link_to 'Back', paths_path %>

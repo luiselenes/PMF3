@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Paths</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lat</th>
+      <th>Lng</th>
+      <th>Sensor</th>
+      <th>Routes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paths.each do |path| %>
+      <tr>
+        <td><%= path.lat %></td>
+        <td><%= path.lng %></td>
+        <td><%= path.sensor %></td>
+        <td><%= path.routes_id %></td>
+        <td><%= link_to 'Show', path %></td>
+        <td><%= link_to 'Edit', edit_path_path(path) %></td>
+        <td><%= link_to 'Destroy', path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Path', new_path_path %>
