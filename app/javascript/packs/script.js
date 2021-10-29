@@ -2,14 +2,9 @@
 // Scripts
 //
 import $ from 'jquery';
-console.log('hola mundo')
 $(document).on("turbolinks:load", function(){ 
     const sidebarToggle = document.body.querySelector('#sidebarToggle');
     if (sidebarToggle) {
-        // Uncomment Below to persist sidebar toggle between refreshes
-        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-        //     document.body.classList.toggle('sb-sidenav-toggled');
-        // }
         sidebarToggle.addEventListener('click', event => {
             event.preventDefault();
             document.body.classList.toggle('sb-sidenav-toggled');
@@ -17,8 +12,4 @@ $(document).on("turbolinks:load", function(){
         });
     } 
 })
-//window.addEventListener('DOMContentLoaded', event => {
 
-    // Toggle the side navigation
-     
-//});
