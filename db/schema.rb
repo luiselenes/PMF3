@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2021_10_26_200437) do
 
   create_table "routes", force: :cascade do |t|
     t.bigint "device_id", null: false
-    t.date "routedate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["device_id"], name: "index_routes_on_device_id"
@@ -104,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_200437) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

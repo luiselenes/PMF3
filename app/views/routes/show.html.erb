@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+  <div id="recorrido">
+      <header> 
+            <%= image_tag 'paloverdelogo.png', id: 'pvlogo' %> 
+            <h1 class="headertitle">Recorrido</h1>
+            <h1 class="headercompany">Compañia</h1>
+            <div class="labelsinrow">
+                <label id="lgreenhouse">Invernadero: </label>
+                <label id="lgreenhousechange">lgreenhousechange</label>
+                <label id="ldate">Fecha y hora: </label>
+                <label id="ldatechange">ldatechange</label>
+                <label id="lcubotchange">lcubotchange</label>
+                <label id="lcubot">Cubot: </label>
+              </div>
+      </header>
+     <body>      
+        <div class="imgrecorrido">
+         <article>
+         <%= image_tag(@route.image)%>
 
-<p>
-  <strong>Height:</strong>
-  <%= @route.height %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @route.latitude %>
-</p>
-
-<p>
-  <strong>Longitud:</strong>
-  <%= @route.longitud %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @route.status %>
-</p>
-
-<p>
-  <strong>Devices:</strong>
-  <%= @route.devices_id %>
-</p>
-
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+         </article>
+          <div class="containerbtn">
+            <button id="btnback" ><i class="fas fa-arrow-left "></i> Anterior</button>
+            <button id="btnnext"> Siguiente <i class=" fas fa-arrow-right"> </i></button>
+         </div> 
+      </div>
+      </body>    
+  </div>
