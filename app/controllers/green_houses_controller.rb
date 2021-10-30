@@ -64,6 +64,6 @@ class GreenHousesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def green_house_params
-      params.require(:green_house).permit(:code_greenhouse, :area_grooves, :status, :agricultural_companies_id)
+      params.require(:green_house).permit(:name,:code_greenhouse, :lat, :lng, :logicaldelete, :agricultural_company_id)
     end
 end

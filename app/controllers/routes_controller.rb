@@ -56,6 +56,7 @@ class RoutesController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
@@ -64,6 +65,6 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:height, :latitude, :longitud, :status, :devices_id, :image)
+      params.require(:route).permit(:device_id, :image)
     end
 end

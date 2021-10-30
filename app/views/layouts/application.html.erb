@@ -15,9 +15,9 @@
     <div>
       <% if signed_in? %>
         <%= render 'layouts/navbar' %>
-       <%= render 'layouts/menu' %> 
-        <% else %>
-         <%= yield %>
+        <%= render 'layouts/menu' %> 
+      <% else %>
+        <%= yield %>
       <% end %>
     </div>   
   </body>

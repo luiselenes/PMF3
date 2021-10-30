@@ -8,7 +8,7 @@ class DevicesController < ApplicationController
   #Search
   def search
     if params[:search].blank?
-      redirect_to device_path and return 
+      redirect_to "/" and return 
     else
       @parameter = params[:search].downcase
       @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
@@ -72,7 +72,7 @@ class DevicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def device_params
-      params.require(:device).permit(:name, :capacity, :status, :agricultural_company_id)
+      params.require(:device).permit(:name, :capacity, :logicaldelete, :agricultural_company_id)
     end
 end
 
