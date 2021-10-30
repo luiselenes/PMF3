@@ -64,6 +64,6 @@ class PathsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def path_params
-      params.require(:path).permit(:lat, :lng, :sensor, :routes_id)
+      params.require(:path).permit(:lat, :lng, :sensor, :route_id)
     end
 end
