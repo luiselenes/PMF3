@@ -6,6 +6,17 @@ class RoutesController < ApplicationController
     @routes = Route.all
   end
 
+
+  def change
+    if paragram[:change].blank?
+      redirect_to "/" and return 
+    else
+      
+    end
+    @route.image
+
+  end
+
   # GET /routes/1 or /routes/1.json
   def show
   end
