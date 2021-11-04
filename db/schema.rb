@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_200437) do
     t.float "lat"
     t.float "lng"
     t.boolean "sensor"
+    t.float "velocity"
     t.bigint "route_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

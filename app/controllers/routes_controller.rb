@@ -1,4 +1,7 @@
 class RoutesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [ :create ]
+  skip_before_action :authenticate_user!, only: [ :create ]
+  
   before_action :set_route, only: %i[ show edit update destroy ]
 
   # GET /routes or /routes.json
@@ -21,7 +24,12 @@ class RoutesController < ApplicationController
 
   # POST /routes or /routes.json
   def create
+    device = Device.where(name: params[:route][:device_name]).first
+    params[:route].delete :device_name
+
+    p params
     @route = Route.new(route_params)
+    @route.device = device
 
     respond_to do |format|
       if @route.save
@@ -65,6 +73,8 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:device_id, :image)
+      params.require(:route).permit(:routedate, :image,
+        paths_attributes: [:lat, :lng, :sensor, :velocity]
+      )
     end
 end
