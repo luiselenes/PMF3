@@ -7,19 +7,32 @@ class RoutesController < ApplicationController
   end
 
 
-  def change
+  def change  
+    @route = Route.find(paragram[:id])
+    if @route== nill
+    redirect_to :back
+    end
+    @all_route_array = Route.find(:all, :select =>"created_at,image")
+
     if paragram[:change].blank?
       redirect_to "/" and return 
     else
-      
     end
-    @route.image
 
   end
 
   # GET /routes/1 or /routes/1.json
   def show
   end
+
+  def previous
+    Route.where(["id < ?", id]).order(:id).last
+  end
+  
+  def next
+    Route.where(["id > ?", id]).order(:id).first
+  end
+
 
   # GET /routes/new
   def new
@@ -28,6 +41,10 @@ class RoutesController < ApplicationController
 
   # GET /routes/1/edit
   def edit
+  end
+  
+  def redirect
+    @parameter = paragram[:]
   end
 
   # POST /routes or /routes.json
@@ -79,3 +96,4 @@ class RoutesController < ApplicationController
       params.require(:route).permit(:device_id, :image)
     end
 end
+
