@@ -23,6 +23,9 @@ class RoutesController < ApplicationController
 
   # GET /routes/1 or /routes/1.json
   def show
+    @parameter = params[:search]
+
+    Route.where(id_device:@parameter)
   end
 
   def previous
@@ -43,10 +46,10 @@ class RoutesController < ApplicationController
   def edit
   end
   
-  def redirect
+  def showxdevice
+   
    
   end
-
   # POST /routes or /routes.json
   def create
     @route = Route.new(route_params)
