@@ -23,9 +23,6 @@ class RoutesController < ApplicationController
 
   # GET /routes/1 or /routes/1.json
   def show
-    @parameter = params[:search]
-
-    Route.where(id_device:@parameter)
   end
 
   def previous
@@ -46,10 +43,10 @@ class RoutesController < ApplicationController
   def edit
   end
   
-  def showxdevice
-   
+  def redirect
    
   end
+
   # POST /routes or /routes.json
   def create
     @route = Route.new(route_params)
@@ -91,8 +88,9 @@ class RoutesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
-      @route = Route.find(params[:id])
+      @route = Route.where("device_id = ?", params[:id]).last
     end
+
 
     # Only allow a list of trusted parameters through.
     def route_params
