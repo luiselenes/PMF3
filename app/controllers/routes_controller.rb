@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [ :create ]
-  skip_before_action :authenticate_user!, only: [ :create ]
+  skip_before_action :verify_authenticity_token, only: [ :create, :update ]
+  skip_before_action :authenticate_user!, only: [ :create, :update ]
   
   before_action :set_route, only: %i[ show edit update destroy ]
 
