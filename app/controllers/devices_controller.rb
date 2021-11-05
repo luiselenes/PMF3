@@ -14,8 +14,13 @@ class DevicesController < ApplicationController
       @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
     end
   end
+  def redirect
+    redirect_to :controller => 'routes', :action => 'show' , :id => params[:id]
+  end
+
   # GET /devices/1 or /devices/1.json
   def show
+    @device = Device.find(params[:id])
   end
 
   # GET /devices/new

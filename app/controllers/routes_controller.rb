@@ -15,7 +15,7 @@ class RoutesController < ApplicationController
     @all_route_array = Route.find(:all, :select =>"created_at,image")
 
     if paragram[:change].blank?
-      redirect_to "/" and return 
+      redirect_to "/" and return
     else
     end
 
@@ -44,7 +44,7 @@ class RoutesController < ApplicationController
   end
   
   def redirect
-    @parameter = paragram[:]
+   
   end
 
   # POST /routes or /routes.json

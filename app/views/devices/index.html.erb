@@ -19,25 +19,39 @@
    <div class="catologcontainer ">
       <% @devices.each do |device| %>
          <div class="col-sm"> 
-            <table >
+            
+           
+             <table >
               <tr> 
+ <%#--------------------------------------------------  %>
+                        
+
+
+
+
+
                   <th id="letterth" whi=>ID</th>
-                  <td><a href="/routes"><%= device.id%></a></td>
-                  
+                  <td><a href="/"><%= device.id%></a></td>
+                  <td>
+                  </td>
                </tr>
                <tr> 
                   <th id="letterth" whi=>Dispositivo</th>
                   <td>
-                  
+
                   <%# <a href="/routes/"><%= 
                   </a> %>
-                  <%= link_to device.name , @route %>
+                 <%= link_to device.name, :redirect%>
+                 
+
                   </td>
                   
                </tr>
                <tr>
                   <th id="letterth">Comapania</th>
                   <td><%= device.agricultural_company_id%></td>
+         
+ <%#--------------------------------------------------  %>
                </tr>
             </table>
          </div>
