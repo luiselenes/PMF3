@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :routes
   resources :green_houses
   resources :devices
+  get '/devices/:id/routes', to: 'devices#routes'
   resources :agricultural_companies
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/search', to: "devices#search" 

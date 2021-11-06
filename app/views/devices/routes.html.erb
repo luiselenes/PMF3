@@ -1,0 +1,30 @@
+
+<%= javascript_pack_tag 'devices', 'data-turbolinks-track': 'reload' %>
+
+  <div id="recorrido">
+      <header> 
+            <%= image_tag 'paloverdelogo.png', id: 'pvlogo' %> 
+            <h1 class="headertitle">Recorrido</h1>
+            <h1 class="headercompany">Compañia</h1>
+            <div class="labelsinrow">
+                <label id="ldate">Fecha y hora: </label>
+                <label id="ldatechange">ldatechange</label>
+                  <label id="lcubot">Cubot: </label>
+              </div>
+      </header>
+     <body>      
+        <div class="imgrecorrido">
+         <article>
+         <input id='routesData' type='hidden' value='<%= @routes.to_json %>'>
+         <input id='routesDataInd' type='hidden' value='0'>
+
+         <%= image_tag(@routes[-1].image) %>
+
+         </article>
+          <div class="containerbtn">
+            <button id="btnback" ><i class="fas fa-arrow-left "></i> Anterior</button>
+            <button id="btnnext"> Siguiente <i class=" fas fa-arrow-right"> </i></button>
+         </div> 
+      </div>
+      </body>    
+  </div>
