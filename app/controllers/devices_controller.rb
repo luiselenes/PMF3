@@ -17,7 +17,7 @@ class DevicesController < ApplicationController
   # GET /devices/1 or /devices/1.json
   def show
   end
-
+  
   # GET /devices/new
   def new
     @device = Device.new

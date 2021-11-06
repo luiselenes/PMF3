@@ -19,6 +19,15 @@ class RoutesController < ApplicationController
   def edit
   end
 
+  #Searchdate
+  #def searchdate
+   #if params[:searchdate].blank?
+    #  redirect_to "/" and return
+    #else 
+    #  @parameters=params[:searchdate].timestamps
+   #end  
+  #end 
+
   # POST /routes or /routes.json
   def create
     @route = Route.new(route_params)
@@ -60,11 +69,12 @@ class RoutesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
-      @route = Route.find(params[:id])
+      @route = Route.timestamps 
+      #@route = Route.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:device_id, :image)
+      params.require(:route).permit(:device_id, :image, :timestamps)
     end
 end

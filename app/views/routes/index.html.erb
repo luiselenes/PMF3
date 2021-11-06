@@ -5,35 +5,41 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-    <%= image_tag 'paloverdelogo.png', id: 'pvlogo' %> 
+</header>
+<body>    
+   <div> 
     <h1 class="headertitle">Recorrido</h1>
     <h1 class="headercompany">Compañia</h1>
+   </div> 
     <div class="container">
+     
         <div class="row">
             <div class='col-sm-6'>
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
-                        <script type="text/javascript" src="datepickeroute.js">
-                        </script>
-                        <input type='text' class="form-control" oninput="function()" />
+                        <input type='text' class="form-control" placeholder='Fecha'>
+                        <!--%= search_field_tag :searchdate,params[:searchdate], placeholder='Fecha', class="form-control" %-->
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
+                        <script type="text/javascript">
+                        $(function () {
+                        $('#datetimepicker1').datetimepicker({format: 'YYYY/MM/DD'});
+                        });
+                        </script>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
     <div class="labelsinrow">
-        <label id="lgreenhouse">Invernadero: </label>
-        <label id="lgreenhousechange">lgreenhousechange</label>
+        <!--label id="lgreenhouse">Invernadero: </label>
+        <label id="lgreenhousechange">lgreenhousechange</label-->
         <label id="ldate">Fecha y hora: </label>
         <label id="ldatechange">ldatechange</label>
         <label id="lcubotchange">lcubotchange</label>
         <label id="lcubot">Cubot: </label>
-    </div>
-</header>
-<body>      
+    </div>  
     <div class="imgrecorrido">
         <article>
 
