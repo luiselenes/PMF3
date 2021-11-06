@@ -7,19 +7,6 @@ class RoutesController < ApplicationController
   end
 
 
-  def change  
-    @route = Route.find(paragram[:id])
-    if @route== nill
-    redirect_to :back
-    end
-    @all_route_array = Route.find(:all, :select =>"created_at,image")
-
-    if paragram[:change].blank?
-      redirect_to "/" and return
-    else
-    end
-
-  end
 
   # GET /routes/1 or /routes/1.json
   def show
@@ -42,10 +29,7 @@ class RoutesController < ApplicationController
   # GET /routes/1/edit
   def edit
   end
-  
-  def redirect
-   
-  end
+
 
   # POST /routes or /routes.json
   def create

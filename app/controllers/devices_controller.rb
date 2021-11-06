@@ -19,7 +19,7 @@ class DevicesController < ApplicationController
   end
 
   def routes
-    @routes = @device.routes.order(:routedate)
+    @routes = @device.routes
   end
 
   # GET /devices/1 or /devices/1.json

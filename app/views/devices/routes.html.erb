@@ -18,7 +18,7 @@
          <input id='routesData' type='hidden' value='<%= @routes.to_json %>'>
          <input id='routesDataInd' type='hidden' value='0'>
 
-         <%= image_tag(@routes[-1].image) %>
+         <%= image_tag(@routes[-1].image, id: "imgRoute") %>  
 
          </article>
           <div class="containerbtn">
