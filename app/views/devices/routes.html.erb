@@ -15,15 +15,13 @@
      <body>      
         <div class="imgrecorrido">
          <article>
-         <input id='routesData' type='hidden' value='<%= @routes.to_json %>'>
-         <input id='routesDataInd' type='hidden' value='0'>
 
-         <%= image_tag(@routes[-1].image, id: "imgRoute") %>  
+         <%= image_tag(@route.image, id: "imgRoute") %>  
 
          </article>
           <div class="containerbtn">
-            <button id="btnback" ><i class="fas fa-arrow-left "></i> Anterior</button>
-            <button id="btnnext"> Siguiente <i class=" fas fa-arrow-right"> </i></button>
+            <%= link_to("<button id=btnnext>Siguiente</button>".html_safe, device_route_ind_path(@device.id, @index +1))%>
+            <%= link_to("<button id=btnback>Anterior</button>".html_safe, device_route_ind_path(@device.id, @index -1))%>
          </div> 
       </div>
       </body>    

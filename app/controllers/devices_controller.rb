@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: %i[ show edit update destroy routes ]
+  before_action :set_device, only: %i[ show edit update destroy routes route_ind ]
 
   # GET /devices or /devices.json
   def index
@@ -19,9 +19,18 @@ class DevicesController < ApplicationController
   end
 
   def routes
+
     @routes = @device.routes
+    
   end
 
+  def route_ind
+    @count = @device.routes.all.count.to_i
+    @routes = @device.routes
+    @index = params[:route_ind].to_i
+    @route = @routes[@index]
+    render :routes
+  end
   # GET /devices/1 or /devices/1.json
   def show
   end
