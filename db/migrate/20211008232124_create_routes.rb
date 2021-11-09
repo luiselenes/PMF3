@@ -2,7 +2,7 @@ class CreateRoutes < ActiveRecord::Migration[6.1]
   def change
     create_table :routes do |t|
       t.references :device, null: false, foreign_key: true
-      t.timestamps
+      t.datetime :routedate, default: -> { 'CURRENT_TIMESTAMP' }
     end
   end
 end

@@ -24,7 +24,7 @@ class RoutesController < ApplicationController
    #if params[:searchdate].blank?
     #  redirect_to "/" and return
     #else 
-    #  @parameters=params[:searchdate].timestamps
+     #@parameters=params[:searchdate].dateroute
    #end  
   #end 
 
@@ -69,12 +69,12 @@ class RoutesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
-      @route = Route.timestamps 
+      @route = Route.dateroute 
       #@route = Route.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:device_id, :image, :timestamps)
+      params.require(:route).permit(:device_id, :image, :routedate)
     end
 end
