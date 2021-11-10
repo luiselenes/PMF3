@@ -20,13 +20,14 @@ class RoutesController < ApplicationController
   end
 
   #Searchdate
-  #def searchdate
-   #if params[:searchdate].blank?
-    #  redirect_to "/" and return
-    #else 
-     #@parameters=params[:searchdate].dateroute
-   #end  
-  #end 
+  def searchdate
+  if params[:searchdate].blank?
+     redirect_to "/routes" and return
+    else 
+     @parameters=params[:searchdate]
+     @results=Route.where("(dateroute) LIKE :searchdate", searchdate "%#{@parameters}%")
+   end    
+  end 
 
   # POST /routes or /routes.json
   def create

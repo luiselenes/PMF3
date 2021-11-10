@@ -11,7 +11,8 @@ class DevicesController < ApplicationController
       redirect_to "/" and return 
     else
       @parameter = params[:search].downcase
-      @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+      @results = Device.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+        #Cambiar sintaxis de la busqueada
     end
   end
   # GET /devices/1 or /devices/1.json
