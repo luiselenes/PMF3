@@ -11,17 +11,16 @@
                 <label id="ldatechange">ldatechange</label>
                   <label id="lcubot">Cubot: </label>
               </div>
-      </header>
+      </header> 
      <body>      
         <div class="imgrecorrido">
          <article>
 
          <%= image_tag(@route.image, id: "imgRoute") %>  
-
          </article>
           <div class="containerbtn">
-            <%= link_to("<button id=btnnext>Siguiente</button>".html_safe, device_route_ind_path(@device.id, @index +1))%>
-            <%= link_to("<button id=btnback>Anterior</button>".html_safe, device_route_ind_path(@device.id, @index -1))%>
+            <%= link_to_if(@countall-1 > @index,"<button id=btnnext>Siguiente</button>".html_safe, device_route_ind_path(@device.id, @index +1))%>
+            <%= link_to_if(@index >0,"<button id=btnback>Anterior</button>".html_safe, device_route_ind_path(@device.id, @index -1))%>
          </div> 
       </div>
       </body>    
