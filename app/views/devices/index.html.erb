@@ -11,43 +11,27 @@
             <% end %>
             </div>
          </div>
-         
       <% end %>
    </div>  
    <div class="catologcontainer ">
-   <div class="row">
-      <% @devices.each do |device| %>
-
-
-                              <div class="col-xl-2 col-md-1">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <table >
-               
-               <tr> 
-                  <th id="letterth" whi=>ID</th>
-                     <td><a><%= device.id%></a></td>
-               </tr>
-               <tr> 
-                  <th id="letterth" whi=>Dispositivo:</th>
-                    <td><%= device.name %></td>
-
-               </tr>
-               <tr>
-                  <th id="letterth">Compa&ntilde;ia</th>
-                  <td><%= device.agricultural_company_id%></td>
-               </tr>
-            </table>
-          <%= link_to "", device_route_ind_path(device.id,-1),class:"small text-white stretched-link"%>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                      
-
-
-         
-      <% end %>
-  </div>
-
+      <div class="row">
+         <% @devices.each do |device| %>
+            <div class="col-xl-2 col-md-1">
+               <div class="card bg-success text-white mb-4">
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                  <table >
+                     <tr> 
+                        <th id="letterth" whi=>Dispositivo </th>
+                     </tr>
+                     <tr> 
+                        <td><%= device.name %></td>
+                     </tr>
+                  </table>
+                     <%= link_to "", device_route_ind_path(device.id,-1),class:"small text-white stretched-link"%>
+                  </div>
+               </div>
+            </div>             
+         <% end %>
+      </div>
+   </div>
 </body>
