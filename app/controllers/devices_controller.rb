@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: %i[ show edit update destroy ]
+  before_action :set_device, only: %i[ show edit update destroy routes route_ind ]
 
   # GET /devices or /devices.json
   def index
@@ -14,6 +14,24 @@ class DevicesController < ApplicationController
       @results = Device.where("lower(name) LIKE :search", search: "%#{@parameter}%")
         #Cambiar sintaxis de la busqueada
     end
+  end
+  def redirect
+    redirect_to :controller => 'routes', :action => 'show' , :id => params[:id]
+  end
+
+  def routes
+
+    @routes = @device.routes
+    
+  end
+
+  def route_ind
+    @index = params[:route_ind].to_i
+    @routes = @device.routes
+    @countall = @device.routes.all.count
+    @route = @routes[@index]
+    render :routes
+    
   end
   # GET /devices/1 or /devices/1.json
   def show

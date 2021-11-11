@@ -1,9 +1,5 @@
 <header class="headerdispositivo"> 
- 
-  <h1 class="headertitleGH">Bienvenido al sistema de monitoreo de fumigaci&oacute;n</h1>
-
-</header>
-
+</header> 
 <body>
   <div class="containersearch">
     <%= form_tag(search_path,:method => "get") do %>
@@ -18,19 +14,29 @@
     <h3> Resultados </h3>
   </div>    
   <div class="catologcontainer"> 
+     <div class="row">
+
     <% @results.each do |result| %>
-    <div class="col-sm"> 
-      <table>
-        <tr> 
-          <th id="letterth">Dispositivo</th>
-          <th id="letterth">Compa&ntilde;ia</th>
-        </tr>
-        <tr>
-          <td><a href="/routes"><%= result.name %><br></a></td>
-          <td><%= result.agricultural_company_id%></td>
-        </tr>
-      </table>
-    </div>
+     
+         <div class="col-xl-2 col-md-1">
+            <div class="card bg-success text-white mb-4">
+               <div class="card-footer d-flex align-items-center justify-content-between">
+               <table id=space>
+                
+                  <tr> 
+                     <th id="letterth" whi=>Dispositivo </th>
+                  </tr>
+                   <tr> 
+                     <td><%= result.name %></td>
+                  </tr>
+
+               </table>
+               <%= link_to "", device_route_ind_path(result.id,-1),class:"small text-white stretched-link"%>
+               </div>
+            </div>
+         </div>
+                    
     <% end %> 
+      </div>   
   </div>   
 </body>
