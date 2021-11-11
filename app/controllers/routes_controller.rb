@@ -80,7 +80,7 @@ class RoutesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
-      @route = Route.where("device_id = ?", params[:id]).last
+      @route = Route.find(params[:id])
     end
 
 

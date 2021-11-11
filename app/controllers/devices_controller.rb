@@ -25,8 +25,9 @@ class DevicesController < ApplicationController
   end
 
   def route_ind
+    
     @index = params[:route_ind].to_i
-    @routes = @device.routes
+    @routes = (@device.routes).order('routes.id DESC')
     @countall = @device.routes.all.count
     @route = @routes[@index]
     render :routes
@@ -34,7 +35,7 @@ class DevicesController < ApplicationController
   end
   # GET /devices/1 or /devices/1.json
   def show
-  end
+  end 
 
   # GET /devices/new
   def new
