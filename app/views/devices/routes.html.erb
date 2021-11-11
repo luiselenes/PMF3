@@ -1,3 +1,6 @@
+
+<%= javascript_pack_tag 'devices', 'data-turbolinks-track': 'reload' %>
+
   <div id="recorrido">
       <header> 
             <%= image_tag 'paloverdelogo.png', id: 'pvlogo' %> 
@@ -8,16 +11,16 @@
                 <label id="ldatechange">ldatechange</label>
                   <label id="lcubot">Cubot: </label>
               </div>
-      </header>
+      </header> 
      <body>      
         <div class="imgrecorrido">
          <article>
-         <%# <%= image_tag(@route.image)%>  
 
+         <%= image_tag(@route.image, id: "imgRoute") %>  
          </article>
           <div class="containerbtn">
-            <button id="btnback" ><i class="fas fa-arrow-left "></i> Anterior</button>
-            <button id="btnnext"> Siguiente <i class=" fas fa-arrow-right"> </i></button>
+            <%= link_to_if(@countall-1 > @index,"<button id=btnnext>Siguiente</button>".html_safe, device_route_ind_path(@device.id, @index +1))%>
+            <%= link_to_if(@index >0,"<button id=btnback>Anterior</button>".html_safe, device_route_ind_path(@device.id, @index -1))%>
          </div> 
       </div>
       </body>    
