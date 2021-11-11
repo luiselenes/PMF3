@@ -1,6 +1,6 @@
 <header >
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-dateti  mepicker.css" rel="stylesheet"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
@@ -14,7 +14,7 @@
    <div class='datepcker'>
    </div>
     <div class="container"> 
-        <%= form_tag(routes_routesdate_path(:searchdate)) do %>
+        <%= form_tag(routesdate_path(:searchdate)) do %>
             <div class="row">
                 <div class='col-sm-6'>
                     <div class="form-group">
@@ -42,7 +42,7 @@
     </div>  
     <div class="imgrecorrido">
         <article>
-           <!--%= image_tag (@route.image)%-->
+         <%= image_tag (@datesroutes.image, id:"imgroute")%>
         </article>
         <div class="containerbtn">
             <button id="btnback" ><i class="fas fa-arrow-left "></i> Anterior</button>

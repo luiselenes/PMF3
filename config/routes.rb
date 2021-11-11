@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :agricultural_companies
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/search', to: "devices#search"
-  post '/routesdate/:routedate', to:'routes#searchdate', as: 'routes_routesdate'
+  post '/routesdate/:searchdate', to:'routes#searchdate', as: 'routes_routesdate'
   end

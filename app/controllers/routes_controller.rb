@@ -25,7 +25,7 @@ class RoutesController < ApplicationController
      redirect_to "/routes" and return
     else 
      @parameters=params[:searchdate]
-     @results=Route.where("(dateroute) LIKE :searchdate", searchdate "%#{@parameters}%")
+     @datesroutes=Route.where("(dateroute.parsesds(string)) LIKE :searchdate", searchdate "%#{@parameters}%")
    end    
   end 
 
@@ -70,8 +70,8 @@ class RoutesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
-      @route = Route.dateroute 
-      #@route = Route.find(params[:id])
+      #@route = Route.dateroute 
+      @route = Route.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
