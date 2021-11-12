@@ -12,6 +12,7 @@ class DevicesController < ApplicationController
     else
       @parameter = params[:search].downcase
       @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+      
     end
   end
   def redirect
