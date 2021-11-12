@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   get '/devices/:id/routes', to: 'devices#routes'
   get '/devices/:id/routes/:route_ind', to: 'devices#route_ind', as: 'device_route_ind'
   get '/devices/:id/routedate/:date/:route_ind', to: 'devices#searchdate', as: "device_searchdate"
-  post '/device/routedates', to: "devices#routedates", as: "device_routesdate"
+  post '/device/routedates', to: "devices#routesdate", as: "device_routesdate"
   end
