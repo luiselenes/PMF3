@@ -19,19 +19,15 @@ class DevicesController < ApplicationController
   end
 
   def routes
-
     @routes = @device.routes
-    
   end
 
   def route_ind
-    
     @index = params[:route_ind].to_i
     @routes = (@device.routes).order('routes.id DESC')
     @countall = @device.routes.all.count
     @route = @routes[@index]
     render :routes
-    
   end
   # GET /devices/1 or /devices/1.json
   def show
@@ -88,7 +84,7 @@ class DevicesController < ApplicationController
     def set_device
       @device = Device.find(params[:id])
     end
-
+    
     # Only allow a list of trusted parameters through.
     def device_params
       params.require(:device).permit(:name, :capacity, :logicaldelete, :agricultural_company_id)

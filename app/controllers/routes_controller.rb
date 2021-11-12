@@ -86,7 +86,7 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:routedate, :image,
+      params.require(:route).permit(:device_name,:routedate, :image,
         paths_attributes: [:lat, :lng, :sensor, :velocity]
       )
     end
