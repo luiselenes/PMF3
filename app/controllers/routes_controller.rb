@@ -33,15 +33,6 @@ class RoutesController < ApplicationController
   def edit
   end
 
-  #Searchdate
-  def searchdate
-  if params[:searchdate].blank?
-     redirect_to "/routes" and return
-    else 
-     @parameters=params[:searchdate]
-     @datesroutes=Route.where("(dateroute.parsesds(string)) LIKE :searchdate", searchdate "%#{@parameters}%")
-   end    
-  end 
 
   # POST /routes or /routes.json
   def create
@@ -96,7 +87,7 @@ class RoutesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:routedate, :image,
+      params.require(:route).permit(:device_name,:routedate, :image,
         paths_attributes: [:lat, :lng, :sensor, :velocity]
       )
     end

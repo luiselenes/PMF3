@@ -1,6 +1,4 @@
-
 <%= javascript_pack_tag 'devices', 'data-turbolinks-track': 'reload' %>
-
 
 <header> 
   <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
@@ -21,26 +19,19 @@
 </header> 
 <body>      
   <div class="container"> 
-    <%= form_tag(device_routesdate_path() ) do %>
+    <%= form_tag(device_routesdate_path(:searchdate)) do %>
         <div class="row">
             <div class='col-sm-6'>
                 <div class="form-group">
-                    <input type="hidden" name="id" value="<%= @device.id %>"/>
-                    <div class='input-group date' >
-                        <input id='datetimepicker1'
-                          type='text'
-                          name="searchdate"
-                          class="form-control"
-                          placeholder='Fecha'>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type="hidden" name="id" value="<%= @device.id %>"/>
+                        <input type='text' name="searchdate" class="form-control" placeholder='Fecha'>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
                     <br>
-                    <%= button_tag(type: 'submit', class: "btn-search styletipo", :searchdate => nil) do %>
-                      Buscar
-                      <i class="fas fa-search">
-                      </i>
+                    <%= button_tag(type: 'submit', class: "btn-search styletipo", :searchdate => nil) do %> Buscar  <i class="fas fa-search"></i>
                     <% end %>
                 </div>
             </div>  
