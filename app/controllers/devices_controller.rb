@@ -4,17 +4,15 @@ class DevicesController < ApplicationController
   # GET /devices or /devices.json
   def index
     @devices = Device.all
+    @results = Device.eager_load(:routes).where("routes.id is not null ")
   end
   #Search
   def search
-    # if params[:search].blank?
-    #   redirect_to "/" and return 
-    # else
-      # @parameter = params[:search].downcase
-      # @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    @devicess = Device.all
       @parameter = params[:search].downcase
-      @results = Device.joins(:routes).where("lower(name) LIKE :search", search: "%#{@parameter}%").where("routes is not null")
+      @results = Device.eager_load(:routes).where("lower(name) LIKE :search", search: "%#{@parameter}%").where("routes.id is not null ")
   end
+  
   def redirect
     redirect_to :controller => 'routes', :action => 'show' , :id => params[:id]
   end

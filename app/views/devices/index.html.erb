@@ -15,8 +15,7 @@
    </div>  
    <div class="catologcontainer ">
       <div class="row">
-         <% @devices.each do |device| %>
-              
+         <% @results.each do |results| %>
             <div class="col-xl-2 col-md-1">
                <div class="card bg-success text-white mb-4">
                   <div class="card-footer d-flex align-items-center justify-content-between">
@@ -25,10 +24,10 @@
                         <th id="letterth" whi=>Dispositivo </th>
                      </tr>
                      <tr> 
-                        <td><%= device.name%></td>
+                        <td><%= results.name%></td>
                      </tr>
                   </table>
-                     <%= link_to "", device_route_ind_path(device.id,0),class:"small text-white stretched-link"%>
+                     <%= link_to "", device_route_ind_path(results.id,0),class:"small text-white stretched-link"%>
                   </div>
                </div>
             </div> 
