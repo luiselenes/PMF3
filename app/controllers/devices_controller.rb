@@ -7,13 +7,13 @@ class DevicesController < ApplicationController
   end
   #Search
   def search
-    if params[:search].blank?
-      redirect_to "/" and return 
-    else
+    # if params[:search].blank?
+    #   redirect_to "/" and return 
+    # else
+      # @parameter = params[:search].downcase
+      # @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
       @parameter = params[:search].downcase
-      @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
-      
-    end
+      @results = Device.joins(:routes).where("lower(name) LIKE :search", search: "%#{@parameter}%").where("routes is not null")
   end
   def redirect
     redirect_to :controller => 'routes', :action => 'show' , :id => params[:id]
