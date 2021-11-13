@@ -13,7 +13,7 @@
     <h1 class="headercompany">Compañia </h1>
   </div>
   <div class="labelsinrow">
-    <label id="ldate">Fecha y hora: <%= @route.routedate%> </label>
+    <label id="ldate">Fecha: <%= @route.routedate.strftime("%d/%m/%Y")%> </label>
     <label id="lcubot">Cubot: <%= @device.name %></label>
   </div>
   <br>

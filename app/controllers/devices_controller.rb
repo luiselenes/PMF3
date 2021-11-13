@@ -48,8 +48,10 @@ class DevicesController < ApplicationController
   #end 
 
   def routesdate
-    @dateroutes = Route.where(routedate: params[:searchdate])
-    
+     @routesdate = Route.where(routedate:.strftime('%d/%m/%y') params[:searchdate])
+     p "hola"
+     p @routesdate
+     p "hola 2"
   end
   # GET /devices/new
   def new

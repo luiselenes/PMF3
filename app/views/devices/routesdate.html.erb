@@ -13,7 +13,7 @@
     <h1 class="headercompany">Compañia </h1>
   </div>
   <div class="labelsinrow">
-    <label id="ldate">Fecha y hora:</label>
+     <label id="ldate">Fecha y hora:</label>
     <label id="lcubot">Cubot:</label>
   </div>
   <br>
@@ -47,11 +47,11 @@
   </div>
   <div class="imgrecorrido">
     <article>
-      <%= image_tag(@dateroutes.image, id: "recorridoimg") %>  
+      <%= image_tag(@routesdate.image, id: "recorridoimg") %>  
     </article>
     <div class="containerbtn">
-      <%= link_to_if(@countall-1 > @index,"<button id=btnnext>Siguiente</button>".html_safe, device_route_ind_path(@device.id, @index +1))%>
-      <%= link_to_if(@index >0,"<button id=btnback>Anterior</button>".html_safe, device_route_ind_path(@device.id, @index -1))%>
+      <!--%= link_to_if(@countall-1 > @index,"<button id=btnnext>Siguiente</button>".html_safe, device_route_ind_path(@device.id, @index +1))%>
+      <%= link_to_if(@index >0,"<button id=btnback>Anterior</button>".html_safe, device_route_ind_path(@device.id, @index -1))%-->
     </div> 
   </div>
 </body>    
