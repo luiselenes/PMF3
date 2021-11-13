@@ -37,18 +37,19 @@ class DevicesController < ApplicationController
   end
 
     #Searchdate
-  def searchdate
-    @routes = @device.routes.where(routedate: params[:searchdate])
+  #def searchdate
+   # @routes = @device.routes.where(routedate: params[:searchdate])
    # if params[:searchdate].blank?
     #  redirect_to "/routes" and return
     #else 
      # @parameters=params[:searchdate]
       #@datesroutes=Route.where("(dateroute.parsesds(string)) LIKE :searchdate", searchdate "%#{@parameters}%")
     #end    
-  end 
+  #end 
 
   def routesdate
-    @routes = @Route.where(routedate: params[:searchdate])
+    @dateroutes = Route.where(routedate: params[:searchdate])
+    
   end
   # GET /devices/new
   def new
