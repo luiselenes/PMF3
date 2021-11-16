@@ -1,6 +1,7 @@
 <header class="headerdispositivo"> 
 </header> 
 <body>
+  <h3>Dispositivos </h3>
   <div class="containersearch">
     <%= form_tag(search_path,:method => "get") do %>
       <div class="input-group">
@@ -12,32 +13,27 @@
           </div>
       </div>  
     <% end %>
-    <h3> Resultados </h3>
+  
   </div>    
   <div class="catologcontainer"> 
      <div class="row">
-
-    <% @results.each do |result| %>
-     
-         <div class="col-xl-2 col-md-1">
-            <div class="card bg-success text-white mb-4">
-               <div class="card-footer d-flex align-items-center justify-content-between">
-               <table id=space>
-                
-                  <tr> 
-                     <th id="letterth" whi=>Dispositivo </th>
-                  </tr>
-                   <tr> 
-                     <td><%= result.name %></td>
-                  </tr>
-
-               </table>
-               <%= link_to "", device_route_ind_path(result.id,-1),class:"small text-white stretched-link"%>
+         <% @results.each do |results| %>
+            <div class="col-xl-2 col-md-1">
+               <div class="card bg-success text-white mb-4">
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                  <table >
+                     <tr> 
+                        <th id="letterth" whi=>Dispositivo </th>
+                     </tr>
+                     <tr> 
+                        <td><%= results.name%></td>
+                     </tr>
+                  </table>
+                     <%= link_to "", device_route_ind_path(results.id,0),class:"small text-white stretched-link"%>
+                  </div>
                </div>
-            </div>
-         </div>
-                    
-    <% end %> 
-      </div>   
+            </div> 
+         <% end %>
+      </div> 
   </div>   
 </body>

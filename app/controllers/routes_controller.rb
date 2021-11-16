@@ -80,13 +80,13 @@ class RoutesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
-      @route = Route.where("device_id = ?", params[:id]).last
+      @route = Route.find(params[:id])
     end
 
 
     # Only allow a list of trusted parameters through.
     def route_params
-      params.require(:route).permit(:routedate, :image,
+      params.require(:route).permit(:device_name,:routedate, :image,
         paths_attributes: [:lat, :lng, :sensor, :velocity]
       )
     end
