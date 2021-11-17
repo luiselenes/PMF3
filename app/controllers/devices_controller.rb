@@ -43,6 +43,7 @@ class DevicesController < ApplicationController
       .where('to_char("routes"."routedate", \'DD-MM-YYYY\') = ?', params[:searchdate])
     if @routes.length == 0
       redirect_back(fallback_location: root_path)
+      flash[:message] = "No hay recorridos en la fecha seleccionada"
     else
       @index = params[:route_ind].to_i
       @countall = @routes.length
@@ -54,7 +55,7 @@ class DevicesController < ApplicationController
   def routesdate
     if params[:searchdate].blank?
       redirect_back(fallback_location: root_path)
-      flash[:searchdate] = "Please ensure all required fields have been filled out."
+      flash[:message] = "No seleccionó fecha"
     else   
       redirect_to '/devices/'+params[:id]+'/routedate/'+params[:searchdate].gsub!('/','-')+'/0'
     end
