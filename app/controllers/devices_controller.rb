@@ -4,17 +4,15 @@ class DevicesController < ApplicationController
   # GET /devices or /devices.json
   def index
     @devices = Device.all
+    @results = Device.eager_load(:routes).where("routes.id is not null ")
   end
   #Search
   def search
-    if params[:search].blank?
-      redirect_to "/" 
-    else
+    @devicess = Device.all
       @parameter = params[:search].downcase
-      @results = Device.where("lower(name) LIKE :search", search: "%#{@parameter}%")
-        #Cambiar sintaxis de la busqueada
-    end
+      @results = Device.eager_load(:routes).where("lower(name) LIKE :search", search: "%#{@parameter}%").where("routes.id is not null ")
   end
+  
   def redirect
     redirect_to :controller => 'routes', :action => 'show' , :id => params[:id]
   end
@@ -26,15 +24,14 @@ class DevicesController < ApplicationController
   def route_ind
     p @device.to_json
     @index = params[:route_ind].to_i
-    @routes = @device.routes
+    @routes = (@device.routes).order('routes.id DESC')
     @countall = @device.routes.all.count
     @route = @routes[@index]
     render :routes
-    
   end
   # GET /devices/1 or /devices/1.json
   def show
-  end
+  end 
 
     #Searchdate
   def searchdate
@@ -112,7 +109,7 @@ class DevicesController < ApplicationController
     def set_device
       @device = Device.find(params[:id])
     end
-
+    
     # Only allow a list of trusted parameters through.
     def device_params
       params.require(:device).permit(:name, :capacity, :logicaldelete, :agricultural_company_id)
