@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: %i[ show edit update destroy routes route_ind ]
+  before_action :set_device, only: %i[ show edit update destroy routes route_ind searchdate ]
 
   # GET /devices or /devices.json
   def index
@@ -8,10 +8,11 @@ class DevicesController < ApplicationController
   #Search
   def search
     if params[:search].blank?
-      redirect_to "/" and return 
+      redirect_to "/" 
     else
       @parameter = params[:search].downcase
-      @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+      @results = Device.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+        #Cambiar sintaxis de la busqueada
     end
   end
   def redirect
@@ -19,12 +20,11 @@ class DevicesController < ApplicationController
   end
 
   def routes
-
     @routes = @device.routes
-    
   end
 
   def route_ind
+    p @device.to_json
     @index = params[:route_ind].to_i
     @routes = @device.routes
     @countall = @device.routes.all.count
@@ -36,6 +36,31 @@ class DevicesController < ApplicationController
   def show
   end
 
+    #Searchdate
+  def searchdate
+    @routes = @device
+      .routes
+      .where('to_char("routes"."routedate", \'DD-MM-YYYY\') = ?', params[:searchdate])
+    if @routes.length == 0
+      redirect_back(fallback_location: root_path)
+      flash[:message] = "No hay recorridos en la fecha seleccionada"
+    else
+      @index = params[:route_ind].to_i
+      @countall = @routes.length
+      @route = @routes[@index]
+      render :routesdate
+    end
+  end 
+
+  def routesdate
+    if params[:searchdate].blank?
+      redirect_back(fallback_location: root_path)
+      flash[:message] = "No seleccionó fecha"
+    else   
+      redirect_to '/devices/'+params[:id]+'/routedate/'+params[:searchdate].gsub!('/','-')+'/0'
+    end
+  end
+  
   # GET /devices/new
   def new
     @device = Device.new

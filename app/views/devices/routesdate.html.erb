@@ -20,11 +20,11 @@
   <div class="containerdatepicker">
   <div class="container"> 
       <%= form_tag(device_routesdate_path() ) do %>
-       <% flash.each do |type, msg| %>
+        <% flash.each do |type, msg| %>
          <div class="alert alert-info" type='hidden'>
             <%= msg %>
-          </div>
-          <% end %>
+         </div>
+        <% end %>
         <div class="row">
             <div class='col-sm-6'>
                 <div class="form-group">
@@ -56,8 +56,8 @@
       <%= image_tag(@route.image, id: "recorridoimg") %>  
     </article>
     <div class="containerbtn">
-      <%= link_to_if(@countall-1 > @index,"<button id=btnnext>Siguiente</button>".html_safe, device_route_ind_path(@device.id, @index +1))%>
-      <%= link_to_if(@index >0,"<button id=btnback>Anterior</button>".html_safe, device_route_ind_path(@device.id, @index -1))%>
+      <%= link_to_if(@countall-1 > @index,"<button id=btnnext>Siguiente</button>".html_safe, device_searchdate_path(@device.id, params[:searchdate] ,@index +1))%>
+      <%= link_to_if(@index >0,"<button id=btnback>Anterior</button>".html_safe, device_searchdate_path(@device.id, params[:searchdate], @index -1))%>
     </div> 
   </div>
 </body>    
