@@ -13,8 +13,8 @@
     <h1 class="headercompany">Compañia </h1>
   </div>
   <div class="labelsinrow">
-     <label id="ldate">Fecha y hora:</label>
-    <label id="lcubot">Cubot:</label>
+    <label id="ldate">Fecha: <%= @route.routedate.strftime("%d/%m/%Y")%> </label>
+    <label id="lcubot">Cubot: <%= @device.name %></label>
   </div>
   <br>
   <div class="containerdatepicker">
@@ -23,20 +23,21 @@
         <div class="row">
             <div class='col-sm-6'>
                 <div class="form-group">
+                    <input type="hidden" name="id" value="<%= @device.id %>"/>
                     <div class='input-group date'id='datetimepicker1' >
                         <input 
                           type='text'
-                          name='searchdate'
-                          class='form-control'
+                          name="searchdate"
+                          class="form-control"
                           placeholder='Fecha'>
-                        <span class='input-group-addon'>
-                            <span class='glyphicon glyphicon-calendar'></span>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                     </div>
                     <br>
-                    <%= button_tag(type: 'submit', class: 'btn-search styletipo', :searchdate => nil) do %>
+                    <%= button_tag(type: 'submit', class: "btn-search styletipo") do %>
                       Buscar
-                      <i class='fas fa-search'>
+                      <i class="fas fa-search">
                       </i>
                     <% end %>
                 </div>
@@ -47,11 +48,11 @@
   </div>
   <div class="imgrecorrido">
     <article>
-      <%= image_tag(@routesdate.image, id: "recorridoimg") %>  
+      <%= image_tag(@route.image, id: "recorridoimg") %>  
     </article>
     <div class="containerbtn">
-      <!--%= link_to_if(@countall-1 > @index,"<button id=btnnext>Siguiente</button>".html_safe, device_route_ind_path(@device.id, @index +1))%>
-      <%= link_to_if(@index >0,"<button id=btnback>Anterior</button>".html_safe, device_route_ind_path(@device.id, @index -1))%-->
+      <%= link_to_if(@countall-1 > @index,"<button id=btnnext>Siguiente</button>".html_safe, device_searchdate_path(@device.id, params[:searchdate] ,@index +1))%>
+      <%= link_to_if(@index >0,"<button id=btnback>Anterior</button>".html_safe, device_searchdate_path(@device.id, params[:searchdate], @index -1))%>
     </div> 
   </div>
 </body>    

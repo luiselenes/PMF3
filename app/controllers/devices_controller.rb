@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: %i[ show edit update destroy routes route_ind routedates ]
+  before_action :set_device, only: %i[ show edit update destroy routes route_ind searchdate ]
 
   # GET /devices or /devices.json
   def index
@@ -37,22 +37,29 @@ class DevicesController < ApplicationController
   end
 
     #Searchdate
-  #def searchdate
-   # @routes = @device.routes.where(routedate: params[:searchdate])
-   # if params[:searchdate].blank?
-    #  redirect_to "/routes" and return
-    #else 
-     # @parameters=params[:searchdate]
-      #@datesroutes=Route.where("(dateroute.parsesds(string)) LIKE :searchdate", searchdate "%#{@parameters}%")
-    #end    
-  #end 
+  def searchdate
+    @routes = @device
+      .routes
+      .where('to_char("routes"."routedate", \'DD-MM-YYYY\') = ?', params[:searchdate])
+    if @routes.length == 0
+      redirect_back(fallback_location: root_path)
+    else
+      @index = params[:route_ind].to_i
+      @countall = @routes.length
+      @route = @routes[@index]
+      render :routesdate
+    end
+  end 
 
   def routesdate
-     @routesdate = Route.where(routedate:.strftime('%d/%m/%y') params[:searchdate])
-     p "hola"
-     p @routesdate
-     p "hola 2"
+    if params[:searchdate].blank?
+      redirect_back(fallback_location: root_path)
+      flash[:searchdate] = "Please ensure all required fields have been filled out."
+    else   
+      redirect_to '/devices/'+params[:id]+'/routedate/'+params[:searchdate].gsub!('/','-')+'/0'
+    end
   end
+  
   # GET /devices/new
   def new
     @device = Device.new

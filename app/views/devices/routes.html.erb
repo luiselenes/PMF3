@@ -20,6 +20,11 @@
   <div class="containerdatepicker">
   <div class="container"> 
       <%= form_tag(device_routesdate_path() ) do %>
+      <% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
         <div class="row">
             <div class='col-sm-6'>
                 <div class="form-group">
@@ -35,7 +40,7 @@
                         </span>
                     </div>
                     <br>
-                    <%= button_tag(type: 'submit', class: "btn-search styletipo", :searchdate => nil) do %>
+                    <%= button_tag(type: 'submit', class: "btn-search styletipo") do %>
                       Buscar
                       <i class="fas fa-search">
                       </i>
