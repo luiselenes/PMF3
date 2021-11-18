@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 2021_10_26_200437) do
   create_table "routes", force: :cascade do |t|
     t.bigint "device_id", null: false
     t.datetime "routedate", default: -> { "CURRENT_TIMESTAMP" }
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["device_id"], name: "index_routes_on_device_id"
   end
 
