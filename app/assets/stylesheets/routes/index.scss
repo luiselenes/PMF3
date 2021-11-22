@@ -2,6 +2,9 @@ body {
   flex-direction: column;
   background: #ffffff;
 }
+.texthead{
+  text-align: center;
+}
 
 h1.elements{
   text-align: center;
@@ -45,9 +48,8 @@ ul {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  -moz-animation: reveal 2s ease;
+  -moz-animation: reveal 1s ease;
   -webkit-animation-fill-mode: backwards;
-  border-style: solid;
 }
 
 @-webkit-keyframes reveal {
@@ -107,23 +109,17 @@ button{
 
 }
 
-#lgreenhouse{
-  float: left;
-  margin-left: 30px;
-}
-#lgreenhousechange{
-  float: left;
-}
-#ldate{
-  margin-right: 30px;
 
-}
-#ldatechange{
-  margin-right: 90px;
+#ldate{
+ float: left;
+ margin-left: 15px;
+
 }
 #lcubot{
   float: right;
+  margin-right: 15px;
 }
-#lcubotchange{
-  float: inline-end;    
+
+.containerdatepicker{
+  float: left;
 }

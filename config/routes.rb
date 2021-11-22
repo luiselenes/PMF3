@@ -16,5 +16,11 @@ Rails.application.routes.draw do
   resources :devices
   resources :agricultural_companies
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/search', to: "devices#search"
+  get '/search', to: "devices#search" 
+  get '/change', to: "routes#change"
+  get '/redirect/', to: "devices#redirect"
+  get '/devices/:id/routes', to: 'devices#routes'
+  get '/devices/:id/routes/:route_ind', to: 'devices#route_ind', as: 'device_route_ind'
+  get '/devices/:id/routedate/:searchdate/:route_ind', to: 'devices#searchdate', as: "device_searchdate"
+  post '/device/routedates', to: "devices#routesdate", as: "device_routesdate"
   end

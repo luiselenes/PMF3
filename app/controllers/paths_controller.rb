@@ -1,4 +1,7 @@
 class PathsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [ :create ]
+  skip_before_action :authenticate_user!, only: [ :create ]
+
   before_action :set_path, only: %i[ show edit update destroy ]
 
   # GET /paths or /paths.json
@@ -64,6 +67,6 @@ class PathsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def path_params
-      params.require(:path).permit(:lat, :lng, :sensor, :route_id)
+      params.require(:path).permit(:lat, :lng, :sensor, :velocity, :route_id)
     end
 end

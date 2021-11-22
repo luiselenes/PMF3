@@ -24,10 +24,6 @@ default: &default
 development:
   <<: *default
   database: MF
-  host: 172.17.0.3
-  user: postgres
-  password: "123456"
-
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -71,20 +67,13 @@ test:
 # variable when you boot the app. For example:
 #
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
-#
 # If the connection URL is provided in the special DATABASE_URL environment
 # variable, Rails will automatically merge its configuration values on top of
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
 #
-#   production:
-#     url: <%= ENV['MY_APP_DATABASE_URL'] %>
-#
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: PMF3_production
-  username: Carlos
-  password: <%= ENV['PMF3_DATABASE_PASSWORD'] %>
+  url: <%= ENV['MF_DATABASE_URL'] %>

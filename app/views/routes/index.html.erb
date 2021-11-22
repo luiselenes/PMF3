@@ -7,31 +7,28 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 </header>
 <body>    
-   <div> 
-    <h1 class="headertitle">Recorrido</h1>
-    <h1 class="headercompany">Compañia</h1>
-   </div> 
-    <div class="container">
-     
-        <div class="row">
-            <div class='col-sm-6'>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" placeholder='Fecha'>
-                        <!--%= search_field_tag :searchdate,params[:searchdate], placeholder='Fecha', class="form-control" %-->
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                        <script type="text/javascript">
-                        $(function () {
-                        $('#datetimepicker1').datetimepicker({format: 'YYYY/MM/DD'});
-                        });
-                        </script>
+   <div class="texthead"> 
+    <h1 id="headertitle">Recorrido</h1>
+    <h1 id="headercompany">Compañia</h1>
+    <div class="container"> 
+        <!--%= form_tag(routes_routesdate_path(:searchdate)) do %-->
+            <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' name="searchdate" class="form-control" placeholder='Fecha'>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <%= button_tag(type: 'submit', class: "btn-search styletipo", :searchdate => nil) do %> Buscar  <i class="fas fa-search"></i>
+                        <% end %>
                     </div>
-                </div>
-            </div>
-        </div> 
-    </div>
+                </div>  
+            </div> 
+        <!--% end %-->
+    </div>    
     <div class="labelsinrow">
         <!--label id="lgreenhouse">Invernadero: </label>
         <label id="lgreenhousechange">lgreenhousechange</label-->
@@ -42,11 +39,16 @@
     </div>  
     <div class="imgrecorrido">
         <article>
-
+           <!--%= image_tag (@route.image)%-->
         </article>
         <div class="containerbtn">
             <button id="btnback" ><i class="fas fa-arrow-left "></i> Anterior</button>
             <button id="btnnext"> Siguiente <i class=" fas fa-arrow-right"> </i></button>
         </div> 
-    </div>
+    </div> 
 </body>
+<script type="text/javascript">
+    $(document).on("turbolinks:load", function(){ 
+        $('#datetimepicker1').datetimepicker({format: 'DD/MM/YYYY'});
+    });
+</script>

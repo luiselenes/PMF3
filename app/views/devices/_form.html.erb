@@ -2,7 +2,6 @@
   <% if device.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(device.errors.count, "error") %> prohibited this device from being saved:</h2>
-
       <ul>
         <% device.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,26 +11,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label "Nombre del dispositivo"%>
+    <%= form.text_field :name, class: "form-control styletipo "%>
   </div>
 
   <div class="field">
-    <%= form.label :capacity %>
-    <%= form.text_field :capacity %>
+    <%= form.label "Capacidad" %>
+    <%= form.text_field :capacity, class: "form-control styletipo "%>
   </div>
-
-  <div class="field">
-    <%= form.label :logicaldelete %>
-    <%= form.check_box :logicaldelete %>
-  </div>
-
   <div class="field">
     <%= form.label :agricultural_company_id %>
-    <%= form.text_field :agricultural_company_id %>
-  </div>
+    <%= form.text_field :agricultural_company_id ,class: "form-control styletipo "%>
+    <%# <%= from.select :agricultural_company_id, options_for_select(rou)%> 
+ </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Agregar Dispositivo"%>
   </div>
 <% end %>
+
+
+<%# <%= f.select :role, options_for_select([["Teacher", "t"], ["Student", "s"]]) 
+select("post", "person_id", Person.all.collect { |p| [ p.name, p.id ] }, { prompt: 'Select Person' }) %>

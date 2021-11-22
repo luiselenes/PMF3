@@ -1,21 +1,61 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: %i[ show edit update destroy ]
+  before_action :set_device, only: %i[ show edit update destroy routes route_ind searchdate ]
 
   # GET /devices or /devices.json
   def index
     @devices = Device.all
+    @results = Device.eager_load(:routes).where("routes.id is not null ")
   end
   #Search
   def search
-    if params[:search].blank?
-      redirect_to "/" and return 
-    else
+    @devicess = Device.all
       @parameter = params[:search].downcase
-      @results = Device.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
-    end
+      @results = Device.eager_load(:routes).where("lower(name) LIKE :search", search: "%#{@parameter}%").where("routes.id is not null ")
+  end
+  
+  def redirect
+    redirect_to :controller => 'routes', :action => 'show' , :id => params[:id]
+  end
+
+  def routes
+    @routes = @device.routes
+  end
+
+  def route_ind
+    p @device.to_json
+    @index = params[:route_ind].to_i
+    @routes = (@device.routes).order('routes.id DESC')
+    @countall = @device.routes.all.count
+    @route = @routes[@index]
+    render :routes
   end
   # GET /devices/1 or /devices/1.json
   def show
+  end 
+
+    #Searchdate
+  def searchdate
+    @routes = @device
+      .routes
+      .where('to_char("routes"."routedate", \'DD-MM-YYYY\') = ?', params[:searchdate])
+    if @routes.length == 0
+      redirect_back(fallback_location: root_path)
+      flash[:message] = "No hay recorridos en la fecha seleccionada"
+    else
+      @index = params[:route_ind].to_i
+      @countall = @routes.length
+      @route = @routes[@index]
+      render :routesdate
+    end
+  end 
+
+  def routesdate
+    if params[:searchdate].blank?
+      redirect_back(fallback_location: root_path)
+      flash[:message] = "No seleccionó fecha"
+    else   
+      redirect_to '/devices/'+params[:id]+'/routedate/'+params[:searchdate].gsub!('/','-')+'/0'
+    end
   end
   
   # GET /devices/new
@@ -69,7 +109,7 @@ class DevicesController < ApplicationController
     def set_device
       @device = Device.find(params[:id])
     end
-
+    
     # Only allow a list of trusted parameters through.
     def device_params
       params.require(:device).permit(:name, :capacity, :logicaldelete, :agricultural_company_id)
