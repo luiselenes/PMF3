@@ -4,9 +4,10 @@ class DevicesController < ApplicationController
   # GET /devices or /devices.json
   def index
     #@current_user.agricultural_companies.first.device
+    p current_user.id
     @devices = Device.all
     #@results = Device.eager_load(:routes).where("routes.id is not null ")
-    #@devices = @current_user.agricultural_companies.first.device
+    #@devices = current_user.id.agricultural_companies.first.devices
     @results = Device.eager_load(:routes).where("routes.id is not null ")
   end
   #Search
@@ -25,7 +26,7 @@ class DevicesController < ApplicationController
   end
 
   def route_ind
-    p @device.to_json
+    #p @device.to_json
     @index = params[:route_ind].to_i
     @routes = (@device.routes).order('routes.id DESC')
     @countall = @device.routes.all.count
