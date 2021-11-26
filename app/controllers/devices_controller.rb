@@ -3,7 +3,10 @@ class DevicesController < ApplicationController
 
   # GET /devices or /devices.json
   def index
+    #@current_user.agricultural_companies.first.device
     @devices = Device.all
+    #@results = Device.eager_load(:routes).where("routes.id is not null ")
+    #@devices = @current_user.agricultural_companies.first.device
     @results = Device.eager_load(:routes).where("routes.id is not null ")
   end
   #Search
