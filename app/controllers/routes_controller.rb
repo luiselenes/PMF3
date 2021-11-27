@@ -39,7 +39,6 @@ class RoutesController < ApplicationController
     device = Device.where(name: params[:route][:device_name]).first
     params[:route].delete :device_name
 
-    p params
     @route = Route.new(route_params)
     @route.device = device
 
