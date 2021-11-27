@@ -3,18 +3,14 @@ class DevicesController < ApplicationController
 
   # GET /devices or /devices.json
   def index
-    #@current_user.agricultural_companies.first.device
-    p current_user.id
-    @devices = Device.all
-    #@results = Device.eager_load(:routes).where("routes.id is not null ")
-    #@devices = current_user.id.agricultural_companies.first.devices
-    @results = Device.eager_load(:routes).where("routes.id is not null ")
+    @devices = current_user.agricultural_companies.first.devices
+    @results = @devices.eager_load(:routes).where("routes.id is not null ")
   end
   #Search
   def search
-    @devicess = Device.all
+    @devicess = current_user.agricultural_companies.first.devices
       @parameter = params[:search].downcase
-      @results = Device.eager_load(:routes).where("lower(name) LIKE :search", search: "%#{@parameter}%").where("routes.id is not null ")
+      @results = @devicess.eager_load(:routes).where("lower(name) LIKE :search", search: "%#{@parameter}%").where("routes.id is not null ")
   end
   
   def redirect
